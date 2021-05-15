@@ -9,9 +9,7 @@
 import UIKit
 
 class CarsTableViewController: UITableViewController {
-
     var cars: [Car] = []
-    
     
     var label: UILabel = {
         let label = UILabel()
@@ -32,37 +30,27 @@ class CarsTableViewController: UITableViewController {
     
     @objc func loadData() {
         
-        REST.loadCars(onComplete: { (cars) in
-            
+        REST.loadCars(onComplete: { cars in
             self.cars = cars
             
-            if self.cars.count == 0 {
-                
+            if self.cars.isEmpty {
                 DispatchQueue.main.async {
-                    
-                    
                     // TODO setar o background
                     self.label.text = "Sem dados"
                     self.tableView.backgroundView = self.label
-                    
-                    
                 }
-                
             } else {
                 // precisa recarregar a tableview usando a main UI thread
                 DispatchQueue.main.async {
                     // parar animacao do refresh
                     self.refreshControl?.endRefreshing()
-                    
                     self.tableView.reloadData()
                 }
             }
-            
-            
-        }) { (error) in
-            
+        }) { error in
+
             var response: String = ""
-            
+
             switch error {
                 case .invalidJSON:
                     response = "invalidJSON"
@@ -71,34 +59,29 @@ class CarsTableViewController: UITableViewController {
                 case .noResponse:
                     response = "noResponse"
                 case .url:
-                    response = "JSON inválido"
+                    response = "InvalidURL"
                 case .taskError(let error):
                     response = "\(error.localizedDescription)"
                 case .responseStatusCode(let code):
                     if code != 200 {
-                        response = "Algum problema com o servidor. :( \nError:\(code)"
+                        response = "Server error: [Error code: \(code)]"
                 }
             }
-            
+
             DispatchQueue.main.async {
                 self.label.text = response
                 self.tableView.backgroundView = self.label
-                print(response)
             }
-            print(response)
-            
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         loadData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
@@ -108,18 +91,13 @@ class CarsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         if cars.count == 0 {
-            
-            // mostrar mensagem padrao
-//            self.label.text = "Sem dados"
             self.tableView.backgroundView = self.label
         } else {
             self.label.text = ""
             self.tableView.backgroundView = nil
         }
-        
-        
+
         return cars.count
     }
 
@@ -131,26 +109,15 @@ class CarsTableViewController: UITableViewController {
         let car = cars[indexPath.row]
         cell.textLabel?.text = car.name
         cell.detailTextLabel?.text = car.brand
+
         return cell
     }
-    
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-                
         if editingStyle == .delete {
-            
             let car = cars[indexPath.row]
-            
+
             REST.delete(car: car) { success in
                 if success {
                     // remover da estrutura local antes de atualizar
@@ -159,32 +126,23 @@ class CarsTableViewController: UITableViewController {
                     DispatchQueue.main.async {
                         // Delete the row from the data source
                         tableView.deleteRows(at: [indexPath], with: .fade)
-                    }                    
-                    
+                    }
                 } else {
                     // TODO mostrar algo para o usuario
+                    self.showAlertOnDelete(withTitle: "Remover", withMessage: "Não foi possível remover o carro.")
                 }
             }
         }
     }
     
+    func showAlertOnDelete(withTitle titleMessage: String, withMessage message: String) {
+        let alert = UIAlertController(title: titleMessage, message: message, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+        self.present(alert, animated: true)
     }
-    */
 
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -199,6 +157,4 @@ class CarsTableViewController: UITableViewController {
             vc?.car = cars[index]
         }
     }
-    
-
 }

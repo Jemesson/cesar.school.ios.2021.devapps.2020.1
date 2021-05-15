@@ -80,35 +80,54 @@ class AddEditViewController: UIViewController {
     }
     
     func loadBrands() {
-        
-        REST.loadBrands { (brands) in
+        REST.loadBrands(onComplete: { brands in
             guard let brands = brands else {return}
-            
+
             // ascending order
             self.brands = brands.sorted(by: {$0.fipe_name < $1.fipe_name})
-            
-            DispatchQueue.main.async {                
+
+            DispatchQueue.main.async {
                 self.pickerView.reloadAllComponents()
             }
+
+        }) { error in            
+            var response: String = ""
+            
+            switch error {
+            case .invalidJSON:
+                response = "invalidJSON"
+            case .noData:
+                response = "noData"
+            case .noResponse:
+                response = "noResponse"
+            case .url:
+                response = "JSON inválido"
+            case .taskError(let error):
+                response = "\(error.localizedDescription)"
+            case .responseStatusCode(let code):
+                if code != 200 {
+                    response = "Server error: [Error code: \(code)]"
+                }
+            }
+
+            print(response)
         }
     }
-    
-    
+
     // Precisamos adicionar dois selectors para serem usados pela toolbar :
     @objc func cancel() {
         tfBrand.resignFirstResponder()
     }
-    
+
     @objc func done() {
         tfBrand.text = brands[pickerView.selectedRow(inComponent: 0)].fipe_name
         cancel()
     }
-    
+
     // MARK: - IBActions
     fileprivate func addCar() {
-        
         startLoadingAnimation()
-        
+
         // new car
         REST.save(car: car) { (success) in
             if success {
@@ -117,15 +136,12 @@ class AddEditViewController: UIViewController {
                 // mostrar um erro generico
                 self.showAlert(withTitle: "Adicionar", withMessage: "Não foi possível adicionar o carro.", isTryAgain: true, operation: .add_car)
             }
-            
         }
     }
     
-    
     fileprivate func updateCar() {
-        
         startLoadingAnimation()
-        
+
         // 2 - edit current car
         REST.update(car: car) { (success) in
             if success {
@@ -135,12 +151,9 @@ class AddEditViewController: UIViewController {
             }
         }
     }
+
     
-    
-    
-    
-    @IBAction func addEdit(_ sender: UIButton) {
-        
+    @IBAction func addEdit(_ sender: UIButton) {        
         if car == nil {
             // adicionar carro novo
             car = Car()
@@ -148,21 +161,21 @@ class AddEditViewController: UIViewController {
         
         car.name = (tfName?.text)!
         car.brand = (tfBrand?.text)!
+
         if tfPrice.text!.isEmpty {
             tfPrice.text = "0"
         }
+
         car.price = Double(tfPrice.text!)!
         car.gasType = scGasType.selectedSegmentIndex
-            
+
         // 1 diferenciar se estamos salvando (SAVE) ou editando (UPDATE)
         if car._id == nil {
             addCar()
         } else {
             updateCar()
         }
-        
     }
-    
     
     // 2 - essa função pode fazer um Back na navegação da Navigation Control
     func goBack() {
@@ -173,14 +186,11 @@ class AddEditViewController: UIViewController {
         
     }
     
-    
     func showAlert(withTitle titleMessage: String, withMessage message: String, isTryAgain hasRetry: Bool, operation oper: CarOperationAction) {
-        
         if oper != .get_brands {
             DispatchQueue.main.async {
                 self.stopLoadingAnimation()
             }
-            
         }
         
         let alert = UIAlertController(title: titleMessage, message: message, preferredStyle: .actionSheet)
@@ -223,8 +233,7 @@ extension AddEditViewController:UIPickerViewDelegate, UIPickerViewDataSource {
         let brand = brands[row]
         return brand.fipe_name
     }
-    
-    
+
     // MARK: - UIPickerViewDataSource
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

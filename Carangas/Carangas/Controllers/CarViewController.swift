@@ -17,15 +17,13 @@ class CarViewController: UIViewController {
     @IBOutlet weak var lbBrand: UILabel!
     @IBOutlet weak var lbGasType: UILabel!
     @IBOutlet weak var lbPrice: UILabel!
-    
+
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var aivLoading: UIActivityIndicatorView!
 
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,7 +61,6 @@ class CarViewController: UIViewController {
 
 } // fim da classe
 
-
 extension CarViewController: WKNavigationDelegate, WKUIDelegate {
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
@@ -74,5 +71,4 @@ extension CarViewController: WKNavigationDelegate, WKUIDelegate {
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         aivLoading.stopAnimating()
     }
-    
 }

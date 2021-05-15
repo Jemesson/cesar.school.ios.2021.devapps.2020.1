@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9eb-2u-Lho">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9eb-2u-Lho">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,7 +31,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xxC-Hy-oVh">
-                                            <rect key="frame" x="20" y="12" width="33.5" height="20.5"/>
+                                            <rect key="frame" x="20" y="12" width="33" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" name="main"/>
@@ -132,7 +133,7 @@
                                     <segment title="Gasolina"/>
                                 </segments>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQc-3c-Ygb">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQc-3c-Ygb">
                                 <rect key="frame" x="24" y="337" width="366" height="40"/>
                                 <color key="backgroundColor" name="main"/>
                                 <constraints>
@@ -155,6 +156,7 @@
                                 <color key="color" name="main"/>
                             </activityIndicatorView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="HQe-E1-kia"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="HQe-E1-kia" firstAttribute="trailing" secondItem="ZfM-q6-B0k" secondAttribute="trailing" constant="24" id="5zL-MI-okh"/>
@@ -175,7 +177,6 @@
                             <constraint firstItem="kLO-Ce-4i7" firstAttribute="leading" secondItem="HQe-E1-kia" secondAttribute="leading" constant="24" id="uuj-qL-doZ"/>
                             <constraint firstItem="HQe-E1-kia" firstAttribute="trailing" secondItem="kLO-Ce-4i7" secondAttribute="trailing" constant="24" id="w5p-TQ-Ido"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="HQe-E1-kia"/>
                     </view>
                     <navigationItem key="navigationItem" title="Cadastro" id="QFB-SZ-ubH"/>
                     <connections>
@@ -228,6 +229,7 @@
                                 <color key="color" name="main"/>
                             </activityIndicatorView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="Hc8-xg-B67"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Hc8-xg-B67" firstAttribute="trailing" secondItem="h0W-xz-8b0" secondAttribute="trailing" constant="16" id="9Xd-oH-OSQ"/>
@@ -246,7 +248,6 @@
                             <constraint firstItem="h0W-xz-8b0" firstAttribute="top" secondItem="Hc8-xg-B67" secondAttribute="top" constant="20" id="usU-Xg-Eur"/>
                             <constraint firstItem="n0h-oW-Exb" firstAttribute="leading" secondItem="Hc8-xg-B67" secondAttribute="leading" constant="24" id="xSR-kp-gCZ"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Hc8-xg-B67"/>
                     </view>
                     <navigationItem key="navigationItem" title="Caranga" id="aNu-ZF-NS2">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="9Jx-R4-Nab">

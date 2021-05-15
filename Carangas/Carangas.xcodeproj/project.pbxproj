@@ -14,12 +14,16 @@
 		A1B18D171F9C1D7E00313110 /* CarsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B18D161F9C1D7E00313110 /* CarsTableViewController.swift */; };
 		A1B18D191F9C1DBA00313110 /* AddEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B18D181F9C1DBA00313110 /* AddEditViewController.swift */; };
 		A1B18D1B1F9C1DCF00313110 /* CarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B18D1A1F9C1DCF00313110 /* CarViewController.swift */; };
+		C995B4EB62DF9B4D79E3ECB9 /* Pods_Carangas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49866C49DE89814D40463087 /* Pods_Carangas.framework */; };
 		ED3C35A42649FC7000343B92 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3C35A32649FC7000343B92 /* Car.swift */; };
 		ED3C35A72649FF3500343B92 /* REST.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3C35A62649FF3500343B92 /* REST.swift */; };
 		EDC85A31264C9D7300E156FD /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDC85A30264C9D7300E156FD /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3FA39BB29B0BF03B5226198E /* Pods-Carangas.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carangas.debug.xcconfig"; path = "Target Support Files/Pods-Carangas/Pods-Carangas.debug.xcconfig"; sourceTree = "<group>"; };
+		49866C49DE89814D40463087 /* Pods_Carangas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carangas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5918F2576156C0750E4305F9 /* Pods-Carangas.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carangas.release.xcconfig"; path = "Target Support Files/Pods-Carangas/Pods-Carangas.release.xcconfig"; sourceTree = "<group>"; };
 		A1B18D011F9C1BDD00313110 /* Carangas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carangas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B18D041F9C1BDD00313110 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1B18D091F9C1BDD00313110 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -43,6 +47,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDC85A31264C9D7300E156FD /* WebKit.framework in Frameworks */,
+				C995B4EB62DF9B4D79E3ECB9 /* Pods_Carangas.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +60,7 @@
 				A1B18D031F9C1BDD00313110 /* Carangas */,
 				A1B18D021F9C1BDD00313110 /* Products */,
 				EDC85A2F264C9D7300E156FD /* Frameworks */,
+				E8EE4C8A3B66AAB5048C9B1E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,6 +86,16 @@
 			path = Carangas;
 			sourceTree = "<group>";
 		};
+		E8EE4C8A3B66AAB5048C9B1E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3FA39BB29B0BF03B5226198E /* Pods-Carangas.debug.xcconfig */,
+				5918F2576156C0750E4305F9 /* Pods-Carangas.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		ED3C35A52649FEFF00343B92 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				EDC85A30264C9D7300E156FD /* WebKit.framework */,
+				49866C49DE89814D40463087 /* Pods_Carangas.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -114,10 +131,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A1B18D131F9C1BDD00313110 /* Build configuration list for PBXNativeTarget "Carangas" */;
 			buildPhases = (
+				F3D4C3753390D5A5FE91B801 /* [CP] Check Pods Manifest.lock */,
 				A1B18CFD1F9C1BDD00313110 /* Sources */,
 				A1B18CFE1F9C1BDD00313110 /* Frameworks */,
 				A1B18CFF1F9C1BDD00313110 /* Resources */,
 				EDC85A2E264C940D00E156FD /* ShellScript */,
+				E1E91CFB1386F4F70D61B742 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -177,6 +196,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		E1E91CFB1386F4F70D61B742 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Carangas/Pods-Carangas-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Carangas/Pods-Carangas-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		EDC85A2E264C940D00E156FD /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -193,6 +230,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
+		F3D4C3753390D5A5FE91B801 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Carangas-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -350,6 +409,7 @@
 		};
 		A1B18D141F9C1BDD00313110 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FA39BB29B0BF03B5226198E /* Pods-Carangas.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -365,6 +425,7 @@
 		};
 		A1B18D151F9C1BDD00313110 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5918F2576156C0750E4305F9 /* Pods-Carangas.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
