@@ -128,8 +128,9 @@ class CarsTableViewController: UITableViewController {
                         tableView.deleteRows(at: [indexPath], with: .fade)
                     }
                 } else {
-                    // TODO mostrar algo para o usuario
-                    self.showAlertOnDelete(withTitle: "Remover", withMessage: "Não foi possível remover o carro.")
+                    DispatchQueue.main.async {
+                        self.showAlertOnDelete(withTitle: "Remover", withMessage: "Não foi possível remover o carro.")
+                    }
                 }
             }
         }
