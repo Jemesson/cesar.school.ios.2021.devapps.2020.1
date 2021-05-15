@@ -28,15 +28,17 @@ class ConsolesManager {
  
  
     func deleteConsole(index: Int, context: NSManagedObjectContext) {
-        let console = consoles[index]
-        context.delete(console)
-     
-        do {
-            try context.save()
-            // tirar da lista local de consoles para manter a estrutura dos dados atualizados
-            consoles.remove(at: index)
-        } catch  {
-            print(error.localizedDescription)
+        if (!consoles.isEmpty) {
+            let console = consoles[index]
+            context.delete(console)
+         
+            do {
+                try context.save()
+                // tirar da lista local de consoles para manter a estrutura dos dados atualizados
+                consoles.remove(at: index)
+            } catch  {
+                print(error.localizedDescription)
+            }
         }
     }
  

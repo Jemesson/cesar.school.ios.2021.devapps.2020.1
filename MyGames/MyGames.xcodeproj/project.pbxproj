@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B2339E68265061E600473AFC /* ConsoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2339E67265061E600473AFC /* ConsoleViewController.swift */; };
+		B2339E6B2650621200473AFC /* ConsoleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2339E6A2650621200473AFC /* ConsoleTableViewCell.swift */; };
+		B2339E6E2650623D00473AFC /* ConsoleAddEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2339E6D2650623D00473AFC /* ConsoleAddEditViewController.swift */; };
 		EDCC831C26377EF10069A8C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCC831B26377EF10069A8C6 /* AppDelegate.swift */; };
 		EDCC831E26377EF10069A8C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCC831D26377EF10069A8C6 /* SceneDelegate.swift */; };
 		EDCC832326377EF10069A8C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDCC832126377EF10069A8C6 /* Main.storyboard */; };
@@ -23,6 +26,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B2339E67265061E600473AFC /* ConsoleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleViewController.swift; sourceTree = "<group>"; };
+		B2339E6A2650621200473AFC /* ConsoleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleTableViewCell.swift; sourceTree = "<group>"; };
+		B2339E6D2650623D00473AFC /* ConsoleAddEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleAddEditViewController.swift; sourceTree = "<group>"; };
 		EDCC831826377EF10069A8C6 /* MyGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDCC831B26377EF10069A8C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EDCC831D26377EF10069A8C6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +90,9 @@
 				EDEAA65A2638E6E40034E393 /* GameTableViewCell.swift */,
 				EDEAA681263A25A00034E393 /* ViewController+CoreData.swift */,
 				EDEAA6A8263B6D810034E393 /* ConsolesManager.swift */,
+				B2339E67265061E600473AFC /* ConsoleViewController.swift */,
+				B2339E6A2650621200473AFC /* ConsoleTableViewCell.swift */,
+				B2339E6D2650623D00473AFC /* ConsoleAddEditViewController.swift */,
 			);
 			path = MyGames;
 			sourceTree = "<group>";
@@ -160,7 +169,9 @@
 			files = (
 				EDEAA6592638E5890034E393 /* GameViewController.swift in Sources */,
 				EDEAA6532638E4330034E393 /* AddEditViewController.swift in Sources */,
+				B2339E68265061E600473AFC /* ConsoleViewController.swift in Sources */,
 				EDCC831C26377EF10069A8C6 /* AppDelegate.swift in Sources */,
+				B2339E6E2650623D00473AFC /* ConsoleAddEditViewController.swift in Sources */,
 				EDCC831E26377EF10069A8C6 /* SceneDelegate.swift in Sources */,
 				EDEAA6572638E56A0034E393 /* ConsolesTableViewController.swift in Sources */,
 				EDEAA682263A25A00034E393 /* ViewController+CoreData.swift in Sources */,
@@ -168,6 +179,7 @@
 				EDEAA6A9263B6D820034E393 /* ConsolesManager.swift in Sources */,
 				EDCC832626377EF10069A8C6 /* MyGames.xcdatamodeld in Sources */,
 				EDEAA65B2638E6E40034E393 /* GameTableViewCell.swift in Sources */,
+				B2339E6B2650621200473AFC /* ConsoleTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

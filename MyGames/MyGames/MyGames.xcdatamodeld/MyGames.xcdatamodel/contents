@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20E232" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="19H15" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Console" representedClassName="Console" syncable="YES" codeGenerationType="class">
+        <attribute name="image" optional="YES" attributeType="Transformable"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="games" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Game" inverseName="console" inverseEntity="Game"/>
     </entity>
@@ -11,7 +12,7 @@
         <relationship name="console" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Console" inverseName="games" inverseEntity="Console"/>
     </entity>
     <elements>
-        <element name="Console" positionX="116.91015625" positionY="-71.4400634765625" width="128" height="73"/>
+        <element name="Console" positionX="116.91015625" positionY="-71.4400634765625" width="128" height="88"/>
         <element name="Game" positionX="-113.8965454101562" positionY="-179.3243103027344" width="128" height="103"/>
     </elements>
 </model>
